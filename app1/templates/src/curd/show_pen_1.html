@@ -1,0 +1,39 @@
+{% extends 'src/index.html' %} 
+{% block body %}
+   <div class="container"><br>
+       <h2 class="text-center text-bold"> Rafsan made app </h2>
+       <h2>Pen List</h2>
+      
+
+       <table class="table table-dark">
+           <thead>
+               <tr>
+                   <th>Title</th>
+                   <th>Price</th>
+                   <th>Customer</th>
+                   <th>Actioins</th>
+               </tr>
+           </thead>
+           <tbody>
+               {% for pen in pen %}
+
+                   <tr>
+                   <td>{{ pen.title }}</td>
+                   <td>{{ pen.price }}</td>
+                   <td>{{ pen.Customer }}</td>
+                   <td><a class="btn btn-info" href="/edit_pen/{{ pen.id }}">Edit</a>
+                       <a class="btn btn-danger" href="/delete_pen/{{ pen.id }}">Delete</a>
+                   </td>
+               </tr>
+
+               {% endfor %}
+
+           </tbody>
+       </table><br/>
+       <a class="btn btn-primary" href="/add_pen/">Add Pen</a>
+   </div>
+   <br/>
+   {% endblock %}
+
+</body>
+</html>

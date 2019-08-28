@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+
+{% block body %}
+{% if user.is_authenticated %}
+
+<p>yes</p>
+<a href="/logout/">logout</a>
+
+{% else %}
+<p>no</p>
+
+{% endif %}
+
+{% endblock %}
+
+</body>
+</html>

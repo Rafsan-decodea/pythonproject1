@@ -1,0 +1,25 @@
+{% extends 'src/index.html' %}
+{% block body %}
+
+  <br>
+    <h2>Make Post </h2>
+    <hr>
+<form method="POST" action="/create_post/" >
+    {% csrf_token %}
+    <div class="rows">
+        <div class="col-md-12">
+            <textarea name="post" class="form-control" rows="10"  ></textarea>
+        </div>
+        <input type="file" name="image" />
+    </div>
+
+     <div class="rows">
+         <div class="col-md-12">
+             <input class="btn btn-success float-right" type="submit" value="Post" />
+         </div>
+     </div>
+<p style="color:green;"> {{ sucess}}</p>
+
+</form>
+
+{% endblock %}

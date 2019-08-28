@@ -1,0 +1,25 @@
+{% extends 'src/index.html' %}
+{% block body %}
+<div class="small_div">
+
+<div class="container">
+    <br>
+    <h2>Pen List</h2>
+    <hr>
+
+    <form method="GET" action="/update_pen/{{ pen.id }}">
+
+          {% csrf_token %}
+
+        <label class="form-group" for="title">Title: </label>
+        <textarea name="post" class="form-control" placeholder="{{ post.post }}" rows="10"></textarea>
+
+      <input class="btn btn-primary" type="submit" value="Update">
+
+    </form>
+
+</div>
+</div><br/>
+{% endblock  %}
+</body>
+</html>

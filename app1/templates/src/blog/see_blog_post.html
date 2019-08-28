@@ -1,0 +1,41 @@
+{% extends 'src/index.html' %}
+
+{% block body %}
+
+
+  <div class="container"><br>
+        <h2 class="text-center text-bold">  </h2>
+        <h2>Post List</h2>
+       
+
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>picture</th>
+                    <th > See post </th>
+                    <th>action</th>
+                   
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in  post %}
+
+                    <tr>
+                        <td> <img src="{{ post.image.url}}" class="img-rounded" alt="Cinque Terre">
+                    <td>{{ post.post|truncatewords:10 }}</td>
+                   
+                    <td><a class="btn btn-info" href="/edit_blog/{{ post.id }}">Edit</a>
+                        <a class="btn btn-danger" href="/delete_blog/{{ post.id }}">Delete</a>
+                    </td>
+                </tr>
+                
+
+                {% endfor %}
+                 
+ 
+
+            </tbody>
+        </table><br/>
+   
+{% endblock %}
