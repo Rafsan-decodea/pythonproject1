@@ -10,4 +10,5 @@ admin.site.index_title = "Welcome to Panal"
 admin.site.register(Booklist)
 admin.site.register(Penlist)
 admin.site.register(Post)
+admin.site.register(Select)
 # Register your models here.

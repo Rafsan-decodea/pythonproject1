@@ -170,4 +170,11 @@ def update_pen_1(request, id):
     pen.Customer = request.GET['Customer']
     pen.save()
     return redirect('pen')
+##select use for testing testfild
+def select(request):
+    print(request.POST)
+    option = request.POST.get('option')
+    option_change = Select(option=option)
+    option_change.save()
+    return redirect('blog_post')
 # Create your views here.

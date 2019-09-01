@@ -26,5 +26,11 @@ class Post(models.Model):
     def __str__(self):
         return self.post
 
+class Select(models.Model):
+    option = models.CharField(max_length=100)
+    def __str__(self):
+        return self.option
+
+
 
 # Create your models here.

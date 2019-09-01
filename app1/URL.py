@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^edit_blog/(?P<id>\d+)/', views.edit_blog, name='edit_blog' ),
     url(r'^update_blog/(?P<id>\d+)/', views.update_blog, name='update_blog'),
     url(r'^delete_blog/(?P<id>\d+)',views.delete_blog , name='delete_blog'),
+    url(r'^select/',views.select ,name='select'),
 
 ]

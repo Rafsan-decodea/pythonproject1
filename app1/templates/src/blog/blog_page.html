@@ -29,5 +29,15 @@
     <p>{{ post.post }}</p>
     <img src="{{ post.image.url}}" /> 
     {% endfor  %}
+<form action="/select/" method="POST" > 
+      {% csrf_token %}
+   <select  name="option" >
+       <option value="rasfan">Rafsab</option>
+       <option value="hello">Hello</option>
+       <option value="Rafsan">hi</option>
+   </select>
+
+   <input type="submit" name="submit">
+</form>
 </body> 
   </html>
