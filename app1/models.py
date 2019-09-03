@@ -2,6 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
+
 
 
 class Booklist(models.Model):
@@ -23,6 +26,13 @@ class Penlist(models.Model):
 class Post(models.Model):
     post = models.TextField(max_length=500)
     image = models.ImageField(upload_to= 'meida')
+
+
+    def delete(self, *args, **kwargs):
+        storage, path = self.image.storage, self.image.path
+        super(Post, self).delete(*args, **kwargs)
+        storage.delete(path)
+
     def __str__(self):
         return self.post
 
