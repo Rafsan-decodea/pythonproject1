@@ -4,7 +4,7 @@
   <br>
     <h2>Make Post </h2>
     <hr>
-<form method="POST" action="/create_post/" >
+<form method="POST" action="/create_post/" enctype="multipart/form-data" >
     {% csrf_token %}
     <div class="rows">
         <div class="col-md-12">

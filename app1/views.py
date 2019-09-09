@@ -94,7 +94,7 @@ def book_create_1(request):
 def create_post(request):
     print(request.POST)
     post = request.POST.get('post')
-    image = request.POST.get('image')
+    image = request.FILES['image']
     post_details = Post(post=post ,image=image)
     post_details.save()
     return redirect('blog_admin')
@@ -177,4 +177,11 @@ def select(request):
     option_change = Select(option=option)
     option_change.save()
     return redirect('blog_post')
+
+def cal(request):
+    print(request.POST)
+    num1 = request.POST.get('num1')
+    num2 = request.POST.get('num2')
+
+
 # Create your views here.
