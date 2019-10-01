@@ -3,7 +3,7 @@ from __future__ import unicode_literals ,print_function
 from django.shortcuts import *
 
 from .models import *
-
+import smtplib
 from django.http import *
 from django.contrib import auth
 from django.contrib.auth.models import User
@@ -182,6 +182,41 @@ def cal(request):
     print(request.POST)
     num1 = request.POST.get('num1')
     num2 = request.POST.get('num2')
+
+##---------------------Outside Code---------------------------
+def sending_main(request):
+    print (request.POST)
+    Subject = request.POST.get('subject')
+    mail = request.POST.get('mail')
+    send_to = request.POST.get('sender')
+    user = 'rjkabir23@gmail.com'
+    password = '0123456789rafan'
+    send_adress = send_to
+    subject =  raw_input(Subject)
+    msg = raw_input(mail)
+
+
+    try:
+       server = smtplib.SMTP('smtp.gmail.com:587')
+       server.ehlo()
+       server.starttls()
+       server.login(user,password)
+       massage = 'Subject {0} \n \n {1}'.format(subject,msg)
+       server.sendmail(user,send_adress,massage)
+       server.quit()
+       print ('Massages Sending Success fully Complete')
+       context = {'error':'Success'}
+    except smtplib.SMTPException as msg:
+      print ('Some Thing Wrong \n\n')
+      print (msg)
+      context = {'error':msg}
+    return render(request, 'src/blog/blog_page.html' , context)
+
+
+
+
+
+
 
 
 # Create your views here.

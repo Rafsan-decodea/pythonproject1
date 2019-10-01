@@ -2,26 +2,27 @@
 {% block body %}
 <div class="small_div">
 
-<div class="container">
+   <div class="container">
     <br>
     <h2>Pen List</h2>
     <hr>
 
-    <form method="GET" action="/update_blog/{{ post.id }}">
+    <form method="GET" action="/update_blog/{{ post.id }}" enctype="multipart/form-data"  > 
 
-          {% csrf_token %}
+      {% csrf_token %}
 
-        <label class="form-group" for="title">Title: </label>
-        <textarea class="form-control" type="text" name="post"  value="{{ post.post }}" placeholder="{{ post.post }}" rows="20"></textarea>
+      <label class="form-group" for="title">Title: </label>
+      <textarea class="form-control" type="text" name="post"  value="{{ post.post }}" placeholder="{{ post.post }}" rows="20"></textarea>
+      <input type="file" name="image" >
 
-        <br><br/>
+      <br><br/>
 
 
-        <input class="btn btn-primary" type="submit" value="Update">
+      <input class="btn btn-primary" type="submit" value="Update" >
 
-    </form>
+  </form>
 
 </div>
 </div><br/>
 {% endblock  %}
- 
+

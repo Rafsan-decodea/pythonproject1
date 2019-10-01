@@ -41,9 +41,19 @@
 </form>
 
  
-<form action="/">
-    
-</form>
+<form action="/sendmail/" method="POST">
+  {% csrf_token %}
 
+Sender====><input type="email" name="sender">
+subject===><input type="text" name="subject">
+MassageBody=====><input type="text" name="mail"><br/>
+
+<input type="submit" value="submit">
+    
+</form><br/>
+<pre>
+{{error}}
+</pre>
 </body> 
   </html>
+
