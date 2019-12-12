@@ -34,3 +34,9 @@ urlpatterns = [
 
 
 ]
+
+ # {% for post in post %}
+ #    <p>{{ post.post }}</p>
+    
+ #    <img src="{{ post.image.url}}" height="300" width="300"/> 
+ #    {% endfor  %}

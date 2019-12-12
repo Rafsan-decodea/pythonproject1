@@ -19,11 +19,8 @@ from django.contrib import messages
 from django.db.models import Q
 
 def index(request):
-    from urllib2 import urlopen
-    import socket
-    my_ip = urlopen('http://ip.42.pl/raw').read()
-
-    return render(request,'login.html' ,{'ip':my_ip})
+    
+    return render(request,'login.html')
 
 def dashbord(request):
     return render(request,'src/index.html')
@@ -36,6 +33,7 @@ def see_post(request):
     post = Post.objects.all()
     context = { 'post': post}
     return render(request, 'src/blog/see_blog_post.html' ,context)
+
 def blog_post(request):
     post = Post.objects.all()
     context = { 'post': post , 'image':post}
@@ -114,6 +112,7 @@ def add_book_1(request):
     return render(request, 'src/curd/add_book.html')
 def add_pen_1(request):
     return render(request, 'src/curd/add_pen_1.html')
+
 
 
 def delete_book_1(request, id):
