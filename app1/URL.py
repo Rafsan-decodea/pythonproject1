@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^pen/', views.penlist, name='pen'),
     url(r'^add_pen/', views.add_pen_1, name='add_pen'),
     url(r'^blog_admin/', views.blog_admin, name='blog_admin'),
-    url(r'blog_post/',views.blog_post , name='blog_post'),
+##    url(r'blog_post/',views.blog_post , name='blog_post'),
     url(r'^create_post/', views.create_post, name='create_post' ),
 #--------------------------------------------------------------------
     url(r'^see_post/', views.see_post, name ='see_post'),

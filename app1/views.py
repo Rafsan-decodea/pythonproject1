@@ -19,10 +19,12 @@ from django.contrib import messages
 from django.db.models import Q
 
 def index(request):
+    post = Post.objects.all()
+    context = { 'post': post , 'image':post}
+    return render(request, 'src/blog/blog_page.html' , context)
     return render(request,'src/blog/blog_page.html')
 def login_panal(request):
     return render(request,'login.html')
-
 def dashbord(request):
     return render(request,'src/index.html')
 def product(request):
@@ -35,10 +37,10 @@ def see_post(request):
     context = { 'post': post}
     return render(request, 'src/blog/see_blog_post.html' ,context)
 
-def blog_post(request):
-    post = Post.objects.all()
-    context = { 'post': post , 'image':post}
-    return render(request, 'src/blog/blog_page.html' , context)
+##def blog_post(request):
+##    post = Post.objects.all()
+##    context = { 'post': post , 'image':post}
+##    return render(request, 'src/blog/blog_page.html' , context)
 
 def hello(request):
     books = Booklist.objects.all()
