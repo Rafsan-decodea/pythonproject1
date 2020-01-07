@@ -19,7 +19,8 @@ from django.contrib import messages
 from django.db.models import Q
 
 def index(request):
-    
+    return render(request,'src/blog/blog_page.html')
+def login_panal(request):
     return render(request,'login.html')
 
 def dashbord(request):
