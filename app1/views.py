@@ -68,7 +68,7 @@ def login(request):
     user = authenticate(request, username=username, password=password)
     if user:
         auth.login(request, user)
-        return HttpResponseRedirect(reverse('dashbord'))
+        return HttpResponseRedirect(reverse('blog_admin'))
     else:
         return render(request, 'login.html',{'error':'User name or password not matching'})
    else:
