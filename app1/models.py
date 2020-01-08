@@ -26,7 +26,14 @@ class Penlist(models.Model):
 class Post(models.Model):
     post = models.TextField(max_length=500)
     image = models.ImageField(upload_to= 'meida')
-
+    def save(self, *args, **kwargs):
+        # delete old file when replacing by updating the file
+        try:
+            this = Post.objects.get(id=self.id)
+            if this.image != self.image:
+                this.image.delete(save=False)
+        except: pass # when new photo then we do nothing, normal case          
+        super(Post, self).save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
         storage, path = self.image.storage, self.image.path
