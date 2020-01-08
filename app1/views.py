@@ -161,7 +161,8 @@ def update_book_1(request, id):
     return redirect('hello')
 def update_blog(request, id):
     post = Post.objects.get(pk=id)
-    post.post = request.GET['post']
+    post.post = request.POST.get('post')
+    post.image = request.FILES['image']
     post.save()
     return redirect('see_post')
 
